@@ -5,7 +5,7 @@
         <p class="pokemon-name">{{name}}</p>
       <!--- Descomenta esta linea para probar la funcionalidad completa
       <button class="button" @click.prevent="makeRequest">SEARCH</button>
-       comenta la linea de abajo---> 
+       comenta la linea de abajo --> 
       <button class="button" @click.prevent="setData(data)">SEARCH</button>
     </section>
     <section class="app-pokemon-stats">
@@ -14,10 +14,7 @@
         <p id="abilities">ABILITIES</p>
         <ul>
           <li v-for="el in abilities" :key="el">
-            <!---- Descomenta esta linea para probar la funcionalidad completa
-            {{el.ability.name}}
-            comenta la linea de abajo--->
-            {{el}}
+        	{{el}}
           </li>
         </ul>
       </div>
@@ -41,7 +38,8 @@ export default {
       weight: 0,	
       height: 0,
       abilities: [],
-      data: {}
+      data: {},
+	  changeTest: 0
     }
   },
   computed: {
@@ -73,6 +71,7 @@ export default {
   },**/
   
   setData(data) {
+	  this.changeTest += 1;
     try {
       let randomSearch = Math.floor(Math.random()*3)
       data = data.mock[randomSearch].data
